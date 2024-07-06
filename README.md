@@ -37,7 +37,7 @@ entrecomillada.
  
 ## Proceso
 Como todo proyecto de 42School, la primera etapa es la de investigación.  
-Para esta estapa recomendamos fuertemente leer el [manual de bash](https://www.gnu.org/software/bash/manual/html_node/index.html) y dividir el proyecto en fases tal y como menciona en [shell operation](https://www.gnu.org/software/bash/manual/html_node/Shell-Operation.html).
+Para esta estapa recomendamos fuertemente leer el [manual de bash](https://www.gnu.org/software/bash/manual/html_node/index.html) y dividir el proyecto en fases tal y como se menciona en la sección [shell operation](https://www.gnu.org/software/bash/manual/html_node/Shell-Operation.html).
 
 > 1.  Reads its input from a file (see Shell Scripts), from a string supplied as an argument to the -c invocation option (see Invoking Bash), or from the user’s terminal.
 > 2.  Breaks the input into words and operators, obeying the quoting rules described in Quoting. These tokens are separated by metacharacters. Alias expansion is performed by this step (see Aliases).
