@@ -55,4 +55,26 @@ Para esta estapa recomendamos fuertemente leer el [manual de bash](https://www.g
 > 5.  Performs any necessary redirections (see Redirections) and removes the redirection operators and their operands from the argument list.
 > 6.  Executes the command (see Executing Commands).
 > 7.  Optionally waits for the command to complete and collects its exit status (see Exit Status).
-   
+
+Para el primer punto utilizamos la libreria readline de GNU. [ver manual.](https://tiswww.case.edu/php/chet/readline/rltop.html)
+Esta libreria nos devuelve la linea ingresada sin salto de línea.
+Para el segundo punto creamos una funcion `lexer()` que se ocupa del análisis lexicológico de la linea que nos devuelve el paso anterior, donde extraemos los caracteres y guardamos en una estructura indicando si el contenido es un `word` o `token` siguiendo las reglas de encomillado de bash.
+Para el tercer paso, nuestra funcion `parser()` recibe estas estructuras generadas por `lexer()` y se ocupa de generar los nodos de ejecucion para el sexto paso. Aqui también revisamos si hay redirecciones y generamos los file descriptors para cada uno de los procesos que vayamos a correr.
+Antes de enviar los nodos generados por la función `parser()` al ejecutor nos encargamos de reallizar las expansiones necesarias de acuerdo a las reglas de encomillado de bash.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
