@@ -3,6 +3,7 @@
 El proyecto de 42School minishell busca interiorizar en el mundo de las shells intentando recrear tu propia mini-shell. Para ello deberás interiorizarte en file descriptors, procesos, señales y el comportamiento general de bahs. 
 
 ## Objetivo
+[es](es.subject.pdf) [en]
 ### la minishell debe: 
 - Mostrar una entrada mientras espera un comando nuevo.
 - Tener un historial funcional.
