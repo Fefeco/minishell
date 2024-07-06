@@ -65,9 +65,16 @@ Para el tercer paso, nuestra funcion `parser()` recibe la lista de nodos generad
 Antes de enviar la lista de nodos generada por la función `parser()` al ejecutor, nos encargamos de reallizar las expansiones necesarias de acuerdo a las reglas de encomillado de bash.
 
 ## Uso
-
+### Clona el repositorio
+```bash
+git clone ... minishell
+```
+### Compila el proyecto con make
 ```bash
 make
+```
+### Ejecuta la minishel
+```bash
 ./minishell
 ```
 ## Documentación
