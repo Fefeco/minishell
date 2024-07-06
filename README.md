@@ -1,4 +1,4 @@
-[:uk:en](README.en.md)
+[Versión en inglés :uk:](README.en.md)
 # 42School minishell 
 
 El proyecto de 42School minishell busca interiorizar en el mundo de las shells intentando recrear tu propia mini-shell. Para ello deberás interiorizarte en file descriptors, procesos, señales y el comportamiento general de bahs. 
