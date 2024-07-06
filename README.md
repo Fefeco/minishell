@@ -51,9 +51,8 @@ Para esta estapa recomendamos fuertemente leer el [manual de bash](https://www.g
 > 1.  Reads its input from a file (see Shell Scripts), from a string supplied as an argument to the -c invocation option (see Invoking Bash), or from the user’s terminal.
 > 2.  Breaks the input into words and operators, obeying the quoting rules described in Quoting. These tokens are separated by metacharacters. Alias expansion is performed by this step (see Aliases).
 > 3.  Parses the tokens into simple and compound commands (see Shell Commands).
-
-> 5.  Performs the various shell expansions (see Shell Expansions), breaking the expanded tokens into lists of filenames (see Filename Expansion) and commands and arguments.
-> 6.  Performs any necessary redirections (see Redirections) and removes the redirection operators and their operands from the argument list.
-> 7.  Executes the command (see Executing Commands).
-> 8.  Optionally waits for the command to complete and collects its exit status (see Exit Status).
+> 4.  Performs the various shell expansions (see Shell Expansions), breaking the expanded tokens into lists of filenames (see Filename Expansion) and commands and arguments.
+> 5.  Performs any necessary redirections (see Redirections) and removes the redirection operators and their operands from the argument list.
+> 6.  Executes the command (see Executing Commands).
+> 7.  Optionally waits for the command to complete and collects its exit status (see Exit Status).
    
