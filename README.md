@@ -4,7 +4,7 @@
 El proyecto de 42School minishell busca interiorizar en el mundo de las shells intentando recrear tu propia mini-shell. Para ello deberás interiorizarte en file descriptors, procesos, señales y el comportamiento general de bash. 
 
 ## Objetivo [:ceuta_melilla:es](es.subject.pdf)	 [:uk:en]
-### la minishell debe: 
+### minishell debe:
 - Mostrar una entrada mientras espera un comando nuevo.
 - Tener un historial funcional.
 - Buscar y ejecutar el ejecutable correcto (basado en la variable `PATH` o mediante el uso de rutas relativas o absolutas).
@@ -27,7 +27,7 @@ entrecomillada.
   - `ctrl-D` termina el shell.
   - `ctrl-\` no hace nada.
 - Deberá implementar los built-ins:
-  - `echo` con la opción -n.
+  - `echo` con la opción `-n`.
   - `cd` solo con una ruta relativa o absoluta.
   - `pwd` sin opciones.
   - `export` sin opciones.
@@ -36,7 +36,7 @@ entrecomillada.
   - `exit` sin opciones.
  
 ## Proceso
-Como todo proyecto de 42School, la primera etapa es la de investigación.
+Como todo proyecto de 42School, la primera etapa es la de investigación.  
 Para esta estapa recomendamos fuertemente leer el [manual de bash](https://www.gnu.org/software/bash/manual/html_node/index.html) y dividir el proyecto en fases tal y como menciona en [shell operation](https://www.gnu.org/software/bash/manual/html_node/Shell-Operation.html).
 
 > 1.  Reads its input from a file (see Shell Scripts), from a string supplied as an argument to the -c invocation option (see Invoking Bash), or from the user’s terminal.
@@ -47,10 +47,10 @@ Para esta estapa recomendamos fuertemente leer el [manual de bash](https://www.g
 > 6.  Executes the command (see Executing Commands).
 > 7.  Optionally waits for the command to complete and collects its exit status (see Exit Status).
 
-Para el primer punto utilizamos la libreria readline de GNU. [ver manual.](https://tiswww.case.edu/php/chet/readline/rltop.html)
-Esta libreria nos devuelve la linea ingresada sin salto de línea.
-Para el segundo punto creamos una funcion `lexer()` que se ocupa del análisis lexicológico de la linea que nos devuelve el paso anterior, donde extraemos los caracteres y guardamos en una estructura indicando si el contenido es un `word` o `token` siguiendo las reglas de encomillado de bash.
-Para el tercer paso, nuestra funcion `parser()` recibe estas estructuras generadas por `lexer()` y se ocupa de generar los nodos de ejecucion para el sexto paso. Aqui también revisamos si hay redirecciones y generamos los file descriptors para cada uno de los procesos que vayamos a correr.
+Para el primer punto utilizamos la libreria readline de GNU. [ver manual.](https://tiswww.case.edu/php/chet/readline/rltop.html)  
+Esta libreria nos devuelve la linea ingresada sin salto de línea.  
+Para el segundo punto creamos una funcion `lexer()` que se ocupa del análisis lexicológico de la linea que nos devuelve el paso anterior, donde extraemos los caracteres y guardamos en una estructura indicando si el contenido es un `word` o `token` siguiendo las reglas de encomillado de bash.  
+Para el tercer paso, nuestra funcion `parser()` recibe estas estructuras generadas por `lexer()` y se ocupa de generar los nodos de ejecucion para el sexto paso. Aqui también revisamos si hay redirecciones y generamos los file descriptors para cada uno de los procesos que vayamos a correr.  
 Antes de enviar los nodos generados por la función `parser()` al ejecutor nos encargamos de reallizar las expansiones necesarias de acuerdo a las reglas de encomillado de bash.
 
 ## Uso
@@ -66,6 +66,7 @@ make
 ## Autores
 
 - [@Fefeco](https://www.github.com/Fefeco)
+- [@Daviichii89](https://github.com/Daviichii89)
 
 
 
