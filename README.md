@@ -1,7 +1,7 @@
 [Versión en inglés :uk:](README.en.md)
 # 42School minishell 
 
-El proyecto de 42School minishell busca interiorizar en el mundo de las shells intentando recrear tu propia mini-shell. Para ello deberás interiorizarte en file descriptors, procesos, señales y el comportamiento general de bash. 
+El proyecto minishell de 42School tiene como objetivo sumergirte en el mundo de las shells desafiándote a crear tu propia mini-shell. 
 
 ## Objetivo [:ceuta_melilla:es](es.subject.pdf)	 [:uk:en](en.subject.pdf)
 ### minishell debe:
