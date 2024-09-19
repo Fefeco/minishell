@@ -1,10 +1,8 @@
-[Versión en inglés :uk:](README.en.md)
 # 42School minishell 
 
 El proyecto minishell de 42School tiene como objetivo sumergirte en el mundo de las shells desafiándote a crear tu propia mini-shell. 
 
-## Objetivo [:ceuta_melilla:es](es.subject.pdf)	 [:uk:en](en.subject.pdf)
-### minishell debe:
+## minishell debe:
 - Mostrar una entrada mientras espera un comando nuevo.
 - Tener un historial funcional.
 - Buscar y ejecutar el ejecutable correcto (basado en la variable `PATH` o mediante el uso de rutas relativas o absolutas).
@@ -37,7 +35,7 @@ entrecomillada.
  
 ## Proceso
 Como todo proyecto de 42School, la primera etapa es la de investigación.  
-Para esta estapa recomendamos fuertemente leer el [manual de bash](https://www.gnu.org/software/bash/manual/html_node/index.html) y dividir el proyecto en fases tal y como se menciona en la sección [shell operation](https://www.gnu.org/software/bash/manual/html_node/Shell-Operation.html).
+Recomendamos leer el [manual de bash](https://www.gnu.org/software/bash/manual/html_node/index.html) y dividir el proyecto en fases tal y como se menciona en la sección [shell operation](https://www.gnu.org/software/bash/manual/html_node/Shell-Operation.html).
 
 > 1.  Reads its input from a file (see Shell Scripts), from a string supplied as an argument to the -c invocation option (see Invoking Bash), or from the user’s terminal.
 > 2.  Breaks the input into words and operators, obeying the quoting rules described in Quoting. These tokens are separated by metacharacters. Alias expansion is performed by this step (see Aliases).
@@ -48,21 +46,23 @@ Para esta estapa recomendamos fuertemente leer el [manual de bash](https://www.g
 > 7.  Optionally waits for the command to complete and collects its exit status (see Exit Status).
 
 ### Lectura del input
-
-Para la primera fase utilizamos la libreria readline de GNU que ya nos devuelve la linea ingresada sin el salto de línea final. [ver manual.](https://tiswww.case.edu/php/chet/readline/rltop.html)  
+Utilizamos la libreria readline de GNU que ya está permitido su uso. [ver manual.](https://tiswww.case.edu/php/chet/readline/rltop.html)  
 Esta libreria, a su vez, nos proporciona el historial que solicita la consigna.   
 
 ### Análisis lexicológico
-
-En esta segunda instancia creamos una funcion `lexer()` que se ocupa del análisis lexicológico de la linea que nos devuelve el paso anterior donde extraemos los caracteres y guardamos en una estructura indicando si el contenido es un `word` o `token` siguiendo las reglas de encomillado de bash.
+Esta etapa consiste en identificar tokens. Leemos caracter a caracter la línea que obtubimos en el paso anterior y guardamos en una estructura clasificando en `word` o `token` siguiendo las reglas de encomillado de bash.
 
 ### Análisis sintáctico
-
-Para el tercer paso, nuestra funcion `parser()` recibe la lista de nodos generada por la función `lexer()` y se ocupa de generar nuevos nodos para la instancia de ejecución. Aquí también, revisamos si hay redirecciones y generamos los file descriptors para cada uno de los procesos que vayamos a ejecutar más adelante.  
+La lista de nodos generada por el paso anterior se libera y se generan nuevos nodos para la instancia de ejecución. Aquí también, revisamos si hay redirecciones y generamos los file descriptors para cada uno de los procesos que vayamos a ejecutar más adelante. Cada nodo que generemos es el conjunto de `word` y `token` hasta llegar a un `PIPE` en caso de encontrar uno.
 
 ### Expansiones
+Antes de enviar la lista de nodos al ejecutor hay que realizar las expansiones necesarias de acuerdo a las reglas de encomillado de bash.
 
-Antes de enviar la lista de nodos generada por la función `parser()` al ejecutor, nos encargamos de reallizar las expansiones necesarias de acuerdo a las reglas de encomillado de bash.
+### Redirecciones y liberación de memoria
+Una vez hecho el `fork()` libramos todas las estructuras en memoria del proceso hijo y duplicamos los file descriptors en caso de haber redirecciones.
+
+### Ejecución
+Por último, ejecutamos uno a uno todos los nodos que generamos, liberamos memoria, cerramos file descriptors y lanzamos el prompt esperando la nueva senencia a ejecutar.
 
 ## Uso
 ### Clona el repositorio
@@ -73,6 +73,21 @@ git clone ... minishell
 ```bash
 make
 ```
+Como se menciona anteriormente, este proyecto requiere de la libreria `readline`. En caso de no tenerla instalada ejecuta:
+- En sistemas basados en Debian/Ubuntu:
+```bash
+sudo apt-get update
+sudo apt-get install libreadline-dev
+```
+- En sistemas basados en Red Hat/Fedora:
+```bash
+sudo yum install readline-devel
+```
+- En macOS (usando Homebrew):
+```bash
+brew install readline
+```
+
 ### Ejecuta la minishel
 ```bash
 ./minishell
