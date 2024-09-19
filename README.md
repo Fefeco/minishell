@@ -1,7 +1,7 @@
 # 42School minishell 
 
 El proyecto minishell de 42School tiene como objetivo sumergirte en el mundo de las shells desafiándote a crear tu propia mini-shell. 
-
+![](minishell42.png)
 ## minishell debe:
 - Mostrar una entrada mientras espera un comando nuevo.
 - Tener un historial funcional.
